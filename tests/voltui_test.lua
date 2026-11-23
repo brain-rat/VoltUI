@@ -3118,7 +3118,7 @@ end)()
 print("== Minimap icon")
 local Ic = ns.MinimapIcon
 local Btn = VoltUIMinimapButton
-check(Btn and Btn.parent == Minimap and tostring(Btn.glyph.tex):find("Bolt$") and Btn.glyph.vc and Btn.glyph.vc[1] == ns.Style.UI.primaryText[1]
+check(Btn and Btn.parent == Minimap and tostring(Btn.glyph.tex):find("Bolt$") and Btn.glyph.vc and tint(Btn.fuiPanel.fill)[1] - Btn.glyph.vc[1] > 0.5 and tint(Btn.fuiPanel.fill)[2] - Btn.glyph.vc[2] > 0.5
   and tint(Btn.fuiPanel.fill)[1] == ns.Style.UI.accent[1] and tint(Btn.fuiPanel.fill)[3] == ns.Style.UI.accent[3] and Btn.fuiPanel.fill.shape == nil,
   "the icon, on the map: a solid gold square with the dark bolt (1.81.0, bolt 1.105.0)")
 check(VoltUIDB.icon and VoltUIDB.iconAngle == 315, "defaults")

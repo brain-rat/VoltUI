@@ -197,6 +197,7 @@ section.block { padding-block: 88px; border-top: 1px solid #1F1F1F; }
 
 /* everything list */
 .groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 16px; }
+.groups.four { grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
 .group { border: 1px solid var(--line); background: var(--panel); }
 .group h3 { display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 0 0 12px; background: var(--raised); border-bottom: 1px solid var(--line); font-size: 13px; }
 .group h3 .n { font: 500 11px var(--mono); color: var(--hint); }
@@ -441,9 +442,7 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
     <a class="brand" href="#" aria-label="VoltUI, back to the top"><span class="k"><svg width="13" height="16" viewBox="0 0 13 16" aria-hidden="true"><path d="M8 0 0 9.2h5.2L4 16l9-9.6H7.6z" fill="currentColor"/></svg></span><span class="w">VoltUI</span></a>
     <span class="fill" aria-hidden="true"></span>
     <nav aria-label="Sections">
-      <a href="#qol">Quality of life</a>
-      <a href="#features">Features</a>
-      <a href="#everything">Everything</a>
+      <a href="#adds">What it adds</a>
       <a href="#install">Install</a>
       <a class="gh" href="https://github.com/brain-rat/VoltUI">
         <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -467,7 +466,7 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
         <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M7 1v8M3.5 5.5L7 9l3.5-3.5M1.5 12.5h11"/></svg>
         Download the latest
       </a>
-      <a class="btn" href="#features">See what it does</a>
+      <a class="btn" href="#adds">See what it adds</a>
     </div>
     <div class="facts" aria-label="VoltUI in numbers">
       <div><b>1</b><span>settings window</span></div>
@@ -500,534 +499,58 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
     </div>
    </div>
    </div>
-
-    <figure class="shot hero-shot">
-      <img src="img/hero.png" alt="VoltUI in game: unit frames, action bars, minimap and chat" onload="kShot(this)" onerror="this.remove()">
-      <div class="fit" data-w="1280" data-h="720" role="img" aria-label="Mockup of VoltUI in game: the minimap with its readout rows, two nameplates, party frames, player and target frames with a cast bar, three action bars and chat">
-        <div class="stage m" style="width:1280px;height:720px">
-          <div class="world">
-            <svg viewBox="0 0 1280 720" preserveAspectRatio="none" aria-hidden="true">
-              <defs>
-                <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .08 0"/></filter>
-                <linearGradient id="hz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#55665e" stop-opacity=".55"/><stop offset="1" stop-color="#55665e" stop-opacity="0"/></linearGradient>
-              </defs>
-              <path d="M0 250 L120 205 L230 232 L360 170 L470 214 L600 160 L720 205 L850 150 L980 210 L1100 176 L1280 225 L1280 330 L0 330Z" fill="#26302a" opacity=".85"/>
-              <path d="M0 300 L160 262 L300 290 L460 248 L640 292 L800 252 L960 288 L1120 256 L1280 285 L1280 400 L0 400Z" fill="#232b22"/>
-              <rect x="0" y="230" width="1280" height="90" fill="url(#hz)"/>
-              <path d="M0 720 L0 470 C220 430 420 500 640 470 C860 440 1060 500 1280 460 L1280 720Z" fill="#1b2117"/>
-              <ellipse cx="640" cy="420" rx="150" ry="18" fill="#000" opacity=".25"/>
-              <rect width="1280" height="720" filter="url(#grain)"/>
-            </svg>
-          </div>
-
-          <!-- buffs, left of the minimap -->
-          <div style="position:absolute;right:250px;top:14px;display:flex;gap:4px">
-            <div style="text-align:center"><div class="ico" style="--ic:linear-gradient(135deg,#5b7fd6,#1d2b55);width:28px;height:28px;border:1px solid #000;outline:1px solid #3a4352"></div><div style="font:10px var(--mono);color:#fff;margin-top:2px">54m</div></div>
-            <div style="text-align:center"><div class="ico" style="--ic:linear-gradient(135deg,#e8c25a,#5a3d10);width:28px;height:28px;border:1px solid #000;outline:1px solid #3a4352"></div><div style="font:10px var(--mono);color:#fff;margin-top:2px">28m</div></div>
-            <div style="text-align:center"><div class="ico" style="--ic:linear-gradient(135deg,#8fd16a,#244512);width:28px;height:28px;border:1px solid #000;outline:1px solid #3a4352"></div><div style="font:10px var(--mono);color:#fff;margin-top:2px">9m</div></div>
-            <div style="text-align:center"><div class="ico" style="--ic:linear-gradient(135deg,#c06ee0,#3a1450);width:28px;height:28px;border:1px solid #000;outline:1px solid #3a4352"></div><div style="font:10px var(--mono);color:var(--warn);margin-top:2px">42s</div></div>
-          </div>
-
-          <!-- minimap -->
-          <div class="mm" style="right:14px;top:12px">
-            <div class="map">
-              <svg width="220" height="220" viewBox="0 0 220 220" aria-hidden="true" style="position:absolute;inset:0">
-                <rect width="220" height="220" fill="#3A3F26"/>
-                <path d="M0 0h92l-20 40 14 34-40 30-46-12z" fill="#454A2C"/>
-                <path d="M220 220h-98l18-44 44-22 36 10z" fill="#33381F"/>
-                <path d="M152 0c-8 30 10 52-4 84s-44 40-40 76 20 40 14 60" fill="none" stroke="#27475A" stroke-width="13"/>
-                <path d="M0 152c40-10 62 8 96-8s60-52 124-46" fill="none" stroke="#6C5C3C" stroke-width="5"/>
-                <rect x="34" y="52" width="10" height="10" fill="#57492F"/><rect x="48" y="60" width="8" height="8" fill="#57492F"/><rect x="170" y="132" width="12" height="9" fill="#57492F"/>
-              </svg>
-              <span class="tick" style="left:0;bottom:0;width:14px;height:3px"></span><span class="tick" style="left:0;bottom:0;width:3px;height:14px"></span>
-              <span class="tick" style="right:0;bottom:0;width:14px;height:3px"></span><span class="tick" style="right:0;bottom:0;width:3px;height:14px"></span>
-              <svg width="14" height="14" viewBox="0 0 14 14" style="position:absolute;left:103px;top:103px" aria-hidden="true"><path d="M7 1l5 12-5-3-5 3z" fill="#fff" stroke="#0F0F0F"/></svg>
-              <span style="position:absolute;left:6px;bottom:8px;width:20px;height:20px;display:grid;place-items:center;background:var(--gold);border:1px solid var(--gold-edge);color:#171717;font:700 13px/1 var(--head)">k</span>
-            </div>
-            <div class="row" style="height:24px"><span class="mk" style="background:var(--warn)"></span><span style="font:700 12px var(--head);color:#fff">Venture Co. Base Camp</span></div>
-            <div class="row" style="height:22px;border-top-color:#2a2a2a"><span style="color:#fff">52.4<span class="muted">,</span> 31.7</span><span style="flex:1;height:5px;background-image:var(--hatch)"></span><span style="color:#fff">14:32</span></div>
-            <div class="row" style="height:22px;padding:0;background:var(--bg);font-size:10px;gap:0">
-              <span class="cell"><span style="color:var(--ok)">42</span><span class="muted">ms</span></span>
-              <span class="cell"><span style="color:#fff">60</span><span class="muted">fps</span></span>
-              <span class="cell"><span style="color:var(--warn)">87</span><span class="muted">%</span></span>
-              <span class="cell" style="border-right:0;flex:1;justify-content:flex-end"><span style="color:#fff">12</span><span style="width:6px;height:6px;background:var(--gold)"></span></span>
-            </div>
-          </div>
-
-          <!-- nameplates -->
-          <div class="np" style="left:520px;top:250px">
-            <div class="au"><i class="ico" style="--ic:linear-gradient(135deg,#a77ae6,#2d1650)"></i><i class="ico" style="--ic:linear-gradient(135deg,#e07a5a,#4a1608);border-color:#C41F3B"></i></div>
-            <div class="nm">Ridge Stalker</div>
-            <div class="bar"><i style="width:64%;background-color:#d23b3b"></i><span class="tr" style="font-size:9px;right:3px">64%</span></div>
-          </div>
-          <div class="np tg" style="left:690px;top:300px">
-            <div class="nm">Dust Hyena <span style="color:#ffd76a">22</span></div>
-            <div class="bar"><i style="width:88%;background-color:#d23b3b"></i><span class="tr" style="font-size:9px;right:3px">88%</span></div>
-            <div class="cb bar"><i style="width:55%;background-color:#ffb43c"></i></div>
-            <div class="ct">Howl <span style="float:right">0.8</span></div>
-          </div>
-
-          <!-- party frames -->
-          <div class="raidcell gp" style="left:22px;top:250px"><div class="bar hp"><i style="width:100%;background-color:#C79C6E"></i></div><div class="bar pw"><i style="width:60%;background-color:#c42020"></i></div><span class="nm">Brannoc</span></div>
-          <div class="raidcell gp" style="left:22px;top:294px"><div class="bar hp"><i style="width:58%;background-color:#ABD473"></i><s style="left:58%;width:14%"></s></div><div class="bar pw"><i style="width:80%;background-color:#2e6fe0"></i></div><span class="nm">Velis</span><span class="lost">-1.4k</span><span class="hot" style="right:44px;background:#3bb54a">9</span></div>
-          <div class="raidcell gp" style="left:22px;top:338px;border-color:#3399FF;box-shadow:inset 0 0 0 1px #3399FF"><div class="bar hp"><i style="width:82%;background-color:#69CCF0"></i></div><div class="bar pw"><i style="width:45%;background-color:#2e6fe0"></i></div><span class="nm">Morrow</span><span class="lost">-610</span></div>
-          <div class="raidcell gp" style="left:22px;top:382px;opacity:.42"><div class="bar hp"><i style="width:100%;background-color:#9482C9"></i></div><div class="bar pw"><i style="width:90%;background-color:#2e6fe0"></i></div><span class="nm">Ashka</span></div>
-
-          <!-- player and target -->
-          <div class="uf gp" style="left:390px;top:470px">
-            <div class="hd"><span>Tilde</span><span class="lv" style="color:#fff">24</span></div>
-            <div class="bar hp"><i style="width:91%;background-color:#F58CBA"></i><span class="tl">91%</span><span class="tr">1,842 / 2,024</span></div>
-            <div class="bar pw"><i style="width:72%;background-color:#2e6fe0"></i><span class="tr">1,120</span></div>
-          </div>
-          <div class="uf gp" style="left:660px;top:470px">
-            <div class="hd"><span style="color:#ff5a5a">Dust Hyena</span><span class="lv" style="color:#ffd76a">22</span></div>
-            <div class="bar hp"><i style="width:88%;background-color:#d23b3b"></i><span class="tl">88%</span><span class="tr">1,021 / 1,160</span></div>
-            <div class="bar pw"><i style="width:100%;background-color:#c8b030"></i></div>
-          </div>
-          <div class="cast" style="left:478px;top:545px">
-            <div class="ic2 ico" style="--ic:linear-gradient(135deg,#ffe9a0,#b87a10)"></div>
-            <div class="bar"><i style="background-color:#e8b730"></i><span class="tl" style="font-size:12px">Holy Light</span><span class="tr" style="font-size:11px;font-family:var(--mono)">1.6</span></div>
-          </div>
-
-          <!-- action bars: the Centre preset, bars 2 and 3 as blocks of six either side -->
-          <div class="ab" style="left:402px;bottom:24px;grid-template-columns:repeat(12,36px)">
-            <b class="ico" style="--ic:linear-gradient(135deg,#f3d58a,#7a4a10)"><em>1</em></b>
-            <b class="ico proc" style="--ic:linear-gradient(135deg,#ffe9a0,#b87a10)"><em>2</em></b>
-            <b class="ico cd" style="--ic:linear-gradient(135deg,#9fc4ff,#1d3d7a);--cd:35%"><em>3</em><span>6</span></b>
-            <b class="ico" style="--ic:linear-gradient(135deg,#f6a05a,#6a2a08)"><em>4</em></b>
-            <b class="ico" style="--ic:linear-gradient(135deg,#d8d8d8,#464646)"><em>5</em></b>
-            <b class="ico" style="--ic:linear-gradient(135deg,#ffd0ef,#7a2a5a)"><em>6</em></b>
-            <b class="ico" style="--ic:linear-gradient(135deg,#ffec7a,#7a6010)"><em>7</em></b>
-            <b class="ico" style="--ic:linear-gradient(135deg,#bde38a,#2e5212)"><em>8</em></b>
-            <b class="ico" style="--ic:linear-gradient(135deg,#a6e1ff,#1b4a6a)"><em>9</em></b>
-            <b class="ico" style="--ic:linear-gradient(135deg,#ff9a9a,#6a1010)"><em>0</em><u>5</u></b>
-            <b class="ico" style="--ic:linear-gradient(135deg,#e2c79a,#5a4020)"><em>-</em><u>20</u></b>
-            <b class="ico" style="--ic:linear-gradient(135deg,#c9b3ff,#3a2370)"><em>=</em></b>
-          </div>
-          <div class="ab" style="left:274px;bottom:24px;grid-template-columns:repeat(3,36px)">
-            <b class="ico" style="--ic:linear-gradient(135deg,#d6c08a,#4a3a12)"><em>Q</em></b><b class="ico" style="--ic:linear-gradient(135deg,#8ad6c0,#124a3a)"><em>E</em></b><b class="ico" style="--ic:linear-gradient(135deg,#d68a8a,#4a1212)"><em>R</em></b>
-            <b class="ico" style="--ic:linear-gradient(135deg,#8aa6d6,#12284a)"><em>F</em></b><b class="ico cd" style="--ic:linear-gradient(135deg,#d6d68a,#4a4a12);--cd:70%"><em>G</em><span>1m</span></b><b class="ico" style="--ic:linear-gradient(135deg,#b48ad6,#30124a)"><em>Z</em></b>
-          </div>
-          <div class="ab" style="left:890px;bottom:24px;grid-template-columns:repeat(3,36px)">
-            <b class="ico" style="--ic:linear-gradient(135deg,#9ad68a,#1e4a12)"><em>S1</em></b><b class="ico" style="--ic:linear-gradient(135deg,#d6a88a,#4a2a12)"><em>S2</em></b><b class="ico" style="--ic:linear-gradient(135deg,#8ad6d6,#124a4a)"><em>S3</em></b>
-            <b class="ico" style="--ic:linear-gradient(135deg,#d68ab8,#4a1236)"><em>S4</em></b><b class="ico" style="--ic:linear-gradient(135deg,#c4c4c4,#363636)"><em>S5</em><u>3</u></b><b class="ico" style="--ic:linear-gradient(135deg,#e6d27a,#5a4a10)"><em>S6</em></b>
-          </div>
-          <!-- XP bar with rested -->
-          <div class="bar gp" style="position:absolute;left:402px;bottom:10px;width:476px;height:8px"><i style="width:63%;background-color:#9c4ad6"></i><s style="left:63%;width:12%;background:rgba(80,140,255,.45)"></s></div>
-
-          <!-- chat -->
-          <div class="chat gp" style="left:16px;bottom:16px;width:246px;height:178px;background:rgba(16,18,22,.6)">
-            <div class="tabs"><span class="on">General</span><span>Combat</span><span>Loot</span></div>
-            <div class="lines">
-              <div style="color:#ffc0c0">[1. General] <span style="color:#fff">[Oren]</span>: lf healer for RFK</div>
-              <div style="color:#a6ffa6">You receive loot: <span style="color:#1EFF00">[Ridge Belt]</span></div>
-              <div style="color:#ffd76a">Sold 7 junk items for 1s 23c</div>
-              <div style="color:#ffc0c0">[1. General] <span style="color:#fff">[Sefa]</span>: <span style="color:var(--info);text-decoration:underline">example.com/rfk-route</span></div>
-              <div style="color:#ff80ff">[Lunet] whispers: inv pls</div>
-            </div>
-            <span style="position:absolute;right:4px;top:3px;width:15px;height:15px;display:grid;place-items:center;font:700 10px var(--mono);color:#ddd;border:1px solid #3a4352;background:rgba(0,0,0,.4)">C</span>
-          </div>
-        </div>
-      </div>
-      <figcaption><span class="is is-mock">Mockup</span><span class="is is-shot">In game</span><span class="fill" aria-hidden="true"></span><span>The Centre layout: frames under your character, bars 2 and 3 either side of bar 1</span></figcaption>
-    </figure>
   </div>
 </section>
 
-<!-- ============================== QUALITY OF LIFE ============================== -->
-<section class="block" id="qol" aria-label="Quality of life">
+<!-- ============================== WHAT IT ADDS ============================== -->
+<section class="block" id="adds" aria-labelledby="h-adds">
   <div class="wrap">
     <div class="sec-head">
-      <div class="band"><span class="mk"></span><span class="no">01</span><span>Quality of life</span><span class="fill"></span><span class="end"></span></div>
+      <div class="band"><span class="mk"></span><span class="no">01</span><span>What it adds</span><span class="fill"></span><span class="end"></span></div>
+      <h2 id="h-adds">Every part, each with its own switch.</h2>
     </div>
-    <div class="qol">
-      <article class="q"><span class="k">auto</span><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><circle cx="9" cy="9" r="6.5"/><path d="M11 6.5c-.5-.7-1.2-1-2-1-1.2 0-2 .6-2 1.6 0 2.2 4 1.3 4 3.6 0 1-.9 1.7-2 1.7-.9 0-1.6-.4-2-1.1M9 4v1.5M9 12.5V14"/></svg></div><h3>Sells your junk</h3><p>Open a vendor and your greys sell, one at a time, each slot checked again first. Chat says what you made. Hold Shift to skip it, and turn on repairs if you want them.</p></article>
-      <article class="q"><span class="k">/volt</span><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><circle cx="7.5" cy="7.5" r="5"/><path d="M11.5 11.5L16 16"/></svg></div><h3>Search every setting</h3><p>Type a word and the settings themselves show up, working, grouped by card. <i>Colour</i> finds <i>color</i>. Enter opens the first page it found.</p></article>
-      <article class="q"><span class="k">/volt edit</span><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 1.5v15M1.5 9h15M6 4l3-2.5L12 4M6 14l3 2.5 3-2.5M4 6L1.5 9 4 12M14 6l2.5 3-2.5 3"/></svg></div><h3>Move frames to the pixel</h3><p>A grid, snapping to the grid or to the frames nearby, arrow keys that nudge one pixel (Shift for ten), and X and Y you can type. Spots hold when you change resolution.</p></article>
-      <article class="q"><span class="k">1 click</span><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><rect x="2" y="2" width="9" height="9"/><path d="M7 15h9V6"/></svg></div><h3>Copy from…</h3><p>Give the pet frame the player frame's text, one bar another's layout, heal mode your raid frames, or friendly nameplates the enemy ones. Everything, text only, or the cards you pick.</p></article>
-      <article class="q"><span class="k">/volt share</span><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M3 10v5h12v-5M9 2v9M5.5 5.5L9 2l3.5 3.5"/></svg></div><h3>Your layout as a string</h3><p>Export your layout and settings as letters and numbers that survive chat and forums. Pick the parts that go in, and undo the last import if you don't like it.</p></article>
-      <article class="q"><span class="k">per character</span><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><circle cx="9" cy="6" r="3.5"/><path d="M2.5 16c.8-3.4 3.4-5 6.5-5s5.7 1.6 6.5 5"/></svg></div><h3>Profiles</h3><p>Named profiles, one per character if you like, each with every setting and every frame's spot. Until you make a second one, nothing changes.</p></article>
-      <article class="q"><span class="k">/volt setup</span><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><rect x="2" y="2" width="6" height="6"/><rect x="10" y="2" width="6" height="6"/><rect x="2" y="10" width="14" height="6"/></svg></div><h3>Starting layouts</h3><p>Classic, Centre, Healer and Top left. Try them as often as you like; Undo puts every frame back as it was before the first one.</p></article>
-      <article class="q"><span class="k">/volt errors</span><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M9 2l7.5 13.5h-15z"/><path d="M9 7.5v3.5M9 13v.5"/></svg></div><h3>An error catcher</h3><p>Lua errors are kept with the values around them, and one button makes a report to copy, with versions and which parts are on. The game's own error window works as before.</p></article>
-      <article class="q"><span class="k">bags</span><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M3 6h12l-1 10H4z"/><path d="M6.5 6V4.5a2.5 2.5 0 015 0V6"/></svg></div><h3>Bag search that knows words</h3><p>Search names and types, or say <code>boe</code>, <code>green</code>, <code>epic</code>, <code>quest</code>, <code>junk</code> or <code>new</code>. Everything else dims.</p></article>
-      <article class="q"><span class="k">bags</span><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M3.5 5h11M7 5V3h4v2M5 5l1 11h6l1-11"/></svg></div><h3>Leftover quest items</h3><p>A small red bin on quest items no quest in your log needs any more, and on items that start a quest you've already done. Hover it for why.</p></article>
-      <article class="q"><span class="k">chat</span><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M2 3h14v9H8l-4 3v-3H2z"/></svg></div><h3>Copy from chat</h3><p>A web address in chat opens a box to copy it from, and the small <b>C</b> in a chat window's corner opens its last 500 lines as plain text.</p></article>
-      <article class="q"><span class="k">tooltips</span><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><rect x="2" y="2" width="14" height="11"/><path d="M5 6h8M5 9h5"/></svg></div><h3>Tooltips that answer</h3><p>Item level, vendor price, how many you carry and how many are in the bank, who a unit is targeting, and ids while you hold Shift.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== FEATURES ============================== -->
-<section class="block" id="features" aria-labelledby="h-feat">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="band"><span class="mk"></span><span class="no">02</span><span>Features</span><span class="fill"></span><span class="end"></span></div>
-      <h2 id="h-feat">Built for how you actually play.</h2>
-    </div>
-
-    <!-- settings -->
-    <div class="feature">
-      <div class="copy">
-        <h2>One window for every setting</h2>
-        <p>Type <code>/volt</code>. Every setting VoltUI has is in one window, on pages under six headings, and changes show as you make them. There's nothing to apply.</p>
-        <ul class="ticks">
-          <li><span><b>Home</b> has a tile for every part, with its switch and what it's doing right now.</span></li>
-          <li><span><b>Search</b> finds a setting by its name, its choices or its hover text, and counts the hits on each page.</span></li>
-          <li><span>A setting that has no effect right now <b>dims and says why</b>, like Height with the power bar off.</span></li>
-          <li><span><b>Preview</b> strips show a copy of the frame you're changing, since the window often covers the real one.</span></li>
-          <li><span>It <b>opens in combat</b> too. Only the settings the game locks in a fight wait for it to end.</span></li>
-        </ul>
-      </div>
-      <figure class="shot">
-        <img src="img/settings.png" alt="VoltUI's settings window in game" loading="lazy" onload="kShot(this)" onerror="this.remove()">
-        <div class="fit" data-w="760" data-h="470" role="img" aria-label="Mockup of the settings window: a sidebar with a search box and page list, and the Bags and bank page with two cards of switches, sliders and choices">
-          <div class="stage m" style="width:760px;height:470px">
-            <div class="win sw" style="left:0;top:0">
-              <div class="wt" style="height:30px">
-                <span class="blk" style="font-size:13px;padding:0 12px"><svg width="10" height="12" viewBox="0 0 13 16" aria-hidden="true"><path d="M8 0 0 9.2h5.2L4 16l9-9.6H7.6z" fill="currentColor"/></svg>VoltUI</span>
-                <span style="color:var(--hint)">Items <span style="color:#5a5a5a">/</span> <span style="color:#fff">Bags and bank</span></span>
-                <span class="fill" style="margin:11px 0"></span>
-                <span class="mb">Move frames</span>
-                <span class="mb x"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8"/></svg></span>
-              </div>
-              <div class="body">
-                <div class="side">
-                  <div class="search"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#8C8C8C" stroke-width="1.5" aria-hidden="true"><circle cx="5" cy="5" r="3.5"/><path d="M8 8l2.5 2.5"/></svg><b>gap</b></div>
-                  <div class="cap"><span class="mk" style="width:4px;height:4px"></span>VoltUI</div>
-                  <div class="pg dim">Home</div>
-                  <div class="pg dim">General</div>
-                  <div class="cap"><span class="mk" style="width:4px;height:4px"></span>FRAMES</div>
-                  <div class="pg">Party and raid <span class="ct">2</span></div>
-                  <div class="pg dim">Healing</div>
-                  <div class="cap"><span class="mk" style="width:4px;height:4px"></span>BARS</div>
-                  <div class="pg">Action bars <span class="ct">3</span></div>
-                  <div class="cap"><span class="mk" style="width:4px;height:4px"></span>WORLD</div>
-                  <div class="pg dim">Minimap and map</div>
-                  <div class="cap"><span class="mk" style="width:4px;height:4px"></span>ITEMS</div>
-                  <div class="pg on">Bags and bank <span class="ct">3</span></div>
-                  <div class="pg dim">Loot and tooltips</div>
-                  <div class="cap"><span class="mk" style="width:4px;height:4px"></span>MORE</div>
-                  <div class="pg dim">Share and back up</div>
-                </div>
-                <div class="pane">
-                  <div class="ph"><h4>Bags and bank</h4><span>3 settings match "gap"</span></div>
-                  <div class="cols">
-                    <div class="cd2">
-                      <div class="bh"><span class="mk"></span><span class="no">01</span><span class="t">Layout</span><span class="fill"></span><span class="end"></span></div>
-                      <div class="rows">
-                        <div class="rw"><span class="l">Columns</span><span class="sl"><span class="tr"><i style="width:50%"></i></span><span class="v">10</span></span></div>
-                        <div class="rw"><span class="l">Slot size</span><span class="sl"><span class="tr"><i style="width:40%"></i></span><span class="v">36</span></span></div>
-                        <div class="rw hit hv"><span class="l">Horizontal <b>gap</b><span class="h">?</span></span><span class="sl"><span class="tr"><i style="width:22%"></i></span><span class="v">4</span></span></div>
-                        <div class="rw hit"><span class="l">Vertical <b>gap</b></span><span class="sl"><span class="tr"><i style="width:22%"></i></span><span class="v">4</span></span></div>
-                        <div class="rw hit"><span class="l"><b>Gap</b> between categories</span><span class="sl"><span class="tr"><i style="width:45%"></i></span><span class="v">10</span></span></div>
-                      </div>
-                    </div>
-                    <div class="cd2">
-                      <div class="bh"><span class="mk"></span><span class="no">02</span><span class="t">Look</span><span class="fill"></span><span class="end"></span></div>
-                      <div class="rows">
-                        <div class="rw"><span class="l">Categories</span><span class="sx on"></span></div>
-                        <div class="rw"><span class="l">Item level on gear</span><span class="sx on"></span></div>
-                        <div class="rw"><span class="l">Glow on common items</span><span class="sx"></span></div>
-                        <div class="rw"><span class="l">Headings</span><span class="sg"><span class="on">Line</span><span>Band</span></span></div>
-                        <div class="rw dim"><span class="l">Glow strength</span><span class="sl" style="opacity:.45"><span class="tr"><i style="width:60%"></i></span><span class="v">0.6</span></span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="foot"><span class="note">Saved as you go <span style="color:#5a5a5a">·</span> <b>2 changed</b> on this page</span><span class="mb">Copy from…</span><span class="mb">Reset</span><span class="mb pri">Done</span></div>
-            </div>
-          </div>
-        </div>
-        <figcaption><span class="is is-mock">Mockup</span><span class="is is-shot">In game</span><span class="fill" aria-hidden="true"></span><span>Searching "gap" on the Bags and bank page</span></figcaption>
-      </figure>
-    </div>
-
-    <!-- raid -->
-    <div class="feature flip">
-      <div class="copy">
-        <h2>Party and raid frames made for healing</h2>
-        <p>VoltUI draws its own party and raid frames in place of the game's, with a heal mode that has a layout of its own. Click-casting works on any mouse button, with any modifier.</p>
-        <ul class="ticks">
-          <li><span><b>Incoming heals and shields</b> on every bar, with an edge where they'd overheal.</span></li>
-          <li><span><b>Your HoTs and shields</b> in the corners, with their time left.</span></li>
-          <li><span><b>Dispel windows</b> and a warning with a sound when someone has something you can remove.</span></li>
-          <li><span>Range fading, missing health or percent, sorting, and a <b>preview</b> with made-up members to try it all on.</span></li>
-        </ul>
-      </div>
-      <figure class="shot">
-        <img src="img/raid.png" alt="VoltUI's raid frames in heal mode, in game" loading="lazy" onload="kShot(this)" onerror="this.remove()">
-        <div class="fit" data-w="640" data-h="400" role="img" aria-label="Mockup of heal mode: four groups of five raid frames with incoming heals, HoT timers, a magic debuff window, one member out of range and one dead, a dispel warning above, and click-casting bindings below">
-          <div class="stage m" style="width:640px;height:400px;background:linear-gradient(160deg,#2b3330,#1a1f1a)">
-            <div style="position:absolute;left:20px;top:18px;right:20px;height:30px;display:flex;align-items:center;gap:10px;padding:0 10px;background:rgba(51,153,255,.14);border:1px solid #3399FF;color:#fff;font:600 13px var(--game)">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#7fc0ff" stroke-width="1.5" aria-hidden="true"><path d="M2 5h3l4-3v10L5 9H2z"/><path d="M11 4.5c1 1.4 1 3.6 0 5"/></svg>
-              <span>Magic on <b>Morrow</b>: dispel</span><span style="margin-left:auto;font:11px var(--mono);color:#9ccaff">Polymorph · 6s</span>
-            </div>
-            <div id="raidgrid" style="position:absolute;left:20px;top:62px"></div>
-            <div style="position:absolute;left:20px;right:20px;bottom:16px;display:flex;flex-wrap:wrap;gap:6px">
-              <span class="mb"><span style="color:var(--gold)">Left</span>&nbsp; Flash Heal</span>
-              <span class="mb"><span style="color:var(--gold)">Shift-Left</span>&nbsp; Renew</span>
-              <span class="mb"><span style="color:var(--gold)">Right</span>&nbsp; Dispel Magic</span>
-              <span class="mb"><span style="color:var(--gold)">Middle</span>&nbsp; Power Word: Shield</span>
-            </div>
-          </div>
-        </div>
-        <figcaption><span class="is is-mock">Mockup</span><span class="is is-shot">In game</span><span class="fill" aria-hidden="true"></span><span>Heal mode, with click-casting bound to the mouse</span></figcaption>
-      </figure>
-    </div>
-
-    <!-- bags -->
-    <div class="feature">
-      <div class="copy">
-        <h2>Bags that sort themselves</h2>
-        <p>Press B as usual. One window holds every bag, in categories, with what you just looted at the top and every empty slot at the bottom. They're the game's own slots, so clicking, dragging and selling work as always.</p>
-        <ul class="ticks">
-          <li><span><b>Rarity outline and glow</b> on every item, a gold <b>!</b> on items that start a quest, and item levels if you want them.</span></li>
-          <li><span><b>Special bags kept apart</b>: reagent bags, quivers, soul and profession bags, so your free count stays honest.</span></li>
-          <li><span><b>Filters and search</b>, the same in the bank, which shows every tab at once.</span></li>
-          <li><span>Columns, slot size and every gap are yours to set.</span></li>
-        </ul>
-      </div>
-      <figure class="shot">
-        <img src="img/bags.png" alt="VoltUI's bag window in game" loading="lazy" onload="kShot(this)" onerror="this.remove()">
-        <div class="fit" data-w="420" data-h="470" role="img" aria-label="Mockup of the bag window: items in New, Quest, Equipment, Consumables, Trade goods and Junk, empty slots at the bottom, money in the footer">
-          <div class="stage m" style="width:420px;height:470px">
-            <div class="win" style="left:0;top:0;width:420px;height:470px;display:flex;flex-direction:column">
-              <div class="wt" style="height:30px;padding-right:5px">
-                <span class="blk" style="font-size:13px;padding:0 12px">Bags</span>
-                <span style="color:#fff">38<span class="muted">/64</span></span>
-                <span class="fill" style="margin:11px 0"></span>
-                <span class="mb">Sort</span><span class="mb">Settings</span><span class="mb x"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8"/></svg></span>
-              </div>
-              <div style="height:30px;flex:none;display:flex;align-items:center;gap:2px;padding:0 10px;background:var(--bg);border-bottom:1px solid var(--line)">
-                <span class="pill">Gear</span><span class="pill on">BoE</span><span class="pill">Quest</span><span class="pill">Trade goods</span><span class="pill">Junk</span>
-                <span style="flex:1"></span>
-                <span style="display:flex;align-items:center;gap:6px;width:104px;height:18px;padding:0 6px;background:var(--panel);border:1px solid var(--line);color:var(--hint);font-size:10px"><svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#8C8C8C" stroke-width="1.5" aria-hidden="true"><circle cx="5" cy="5" r="3.5"/><path d="M8 8l2.5 2.5"/></svg>Search</span>
-              </div>
-              <div id="bagbody" style="flex:1;min-height:0;background:var(--bg);padding:10px 11px;display:flex;flex-wrap:wrap;align-content:flex-start;gap:10px 14px;overflow:hidden"></div>
-              <div style="height:28px;flex:none;display:flex;align-items:center;gap:12px;padding:0 10px;border-top:1px solid var(--line)">
-                <span style="display:flex;align-items:center;gap:6px"><span style="width:6px;height:6px;background:var(--ok)"></span>26 free</span>
-                <span style="flex:1"></span>
-                <span class="muted">Favor <span style="color:#fff">14</span></span>
-                <span style="display:flex;align-items:center;gap:4px;color:#fff">12<span style="width:7px;height:7px;background:#FFC61A"></span>34<span style="width:7px;height:7px;background:#C7C7CF"></span>56<span style="width:7px;height:7px;background:#C87533"></span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <figcaption><span class="is is-mock">Mockup</span><span class="is is-shot">In game</span><span class="fill" aria-hidden="true"></span><span>BoE filter on: everything else dims</span></figcaption>
-      </figure>
-    </div>
-
-    <!-- map -->
-    <div class="feature flip">
-      <div class="copy">
-        <h2>A minimap that tells you more</h2>
-        <p>The minimap goes square, with rows under it for the place you're in, your coordinates and the clock, then latency, frame rate, durability and gold. Move it and scale it like any other frame.</p>
-        <ul class="ticks">
-          <li><span><b>Readouts at a glance</b>: latency, frame rate and durability turn amber, then red, when they need you.</span></li>
-          <li><span>Other add-ons' minimap buttons go in a <b>drawer</b> under the map. A tab says how many there are; click it to open or close.</span></li>
-          <li><span><b>The world map</b> drags anywhere and resizes, with every zone's level range written over it.</span></li>
-        </ul>
-      </div>
-      <figure class="shot">
-        <img src="img/map.png" alt="VoltUI's minimap, button drawer and world map in game" loading="lazy" onload="kShot(this)" onerror="this.remove()">
-        <div class="fit" data-w="640" data-h="360" role="img" aria-label="Mockup of the square minimap with its three readout rows and the add-on buttons drawer open under it, and the world map beside it with zone level ranges">
-          <div class="stage m" style="width:640px;height:360px;background:linear-gradient(160deg,#2f372f,#1b201b)">
-            <div class="mm" style="left:28px;top:14px">
-              <div class="map">
-                <svg width="220" height="220" viewBox="0 0 220 220" aria-hidden="true" style="position:absolute;inset:0">
-                  <rect width="220" height="220" fill="#3A3F26"/>
-                  <path d="M0 0h92l-20 40 14 34-40 30-46-12z" fill="#454A2C"/>
-                  <path d="M220 220h-98l18-44 44-22 36 10z" fill="#33381F"/>
-                  <path d="M152 0c-8 30 10 52-4 84s-44 40-40 76 20 40 14 60" fill="none" stroke="#27475A" stroke-width="13"/>
-                  <path d="M0 152c40-10 62 8 96-8s60-52 124-46" fill="none" stroke="#6C5C3C" stroke-width="5"/>
-                  <rect x="34" y="52" width="10" height="10" fill="#57492F"/><rect x="48" y="60" width="8" height="8" fill="#57492F"/><rect x="170" y="132" width="12" height="9" fill="#57492F"/>
-                </svg>
-                <span class="tick" style="left:0;bottom:0;width:14px;height:3px"></span><span class="tick" style="left:0;bottom:0;width:3px;height:14px"></span>
-                <span class="tick" style="right:0;bottom:0;width:14px;height:3px"></span><span class="tick" style="right:0;bottom:0;width:3px;height:14px"></span>
-                <svg width="14" height="14" viewBox="0 0 14 14" style="position:absolute;left:103px;top:103px" aria-hidden="true"><path d="M7 1l5 12-5-3-5 3z" fill="#fff" stroke="#0F0F0F"/></svg>
-                <span style="position:absolute;left:6px;bottom:8px;width:20px;height:20px;display:grid;place-items:center;background:var(--gold);border:1px solid var(--gold-edge);color:#171717;font:700 13px/1 var(--head)">k</span>
-              </div>
-              <div class="row" style="height:24px"><span class="mk" style="background:var(--warn)"></span><span style="font:700 12px var(--head);color:#fff">Venture Co. Base Camp</span></div>
-              <div class="row" style="height:22px;border-top-color:#2a2a2a"><span style="color:#fff">52.4<span class="muted">,</span> 31.7</span><span style="flex:1;height:5px;background-image:var(--hatch)"></span><span style="color:#fff">14:32</span></div>
-              <div class="row" style="height:22px;padding:0;background:var(--bg);font-size:10px;gap:0">
-                <span class="cell"><span style="color:var(--ok)">42</span><span class="muted">ms</span></span>
-                <span class="cell"><span style="color:#fff">60</span><span class="muted">fps</span></span>
-                <span class="cell"><span style="color:var(--warn)">87</span><span class="muted">%</span></span>
-                <span class="cell" style="border-right:0;flex:1;justify-content:flex-end"><span style="color:#fff">12</span><span style="width:6px;height:6px;background:var(--gold)"></span></span>
-              </div>
-              <div class="row" style="height:20px;justify-content:center;gap:6px;background:var(--block);border-top-color:var(--gold);color:var(--gold-text);font-size:10px">Add-ons <span style="color:#fff">6</span></div>
-              <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:6px;background:var(--panel);border-top:1px solid var(--line)">
-                <span class="dbtn">Dt</span><span class="dbtn">Gf</span><span class="dbtn">Bg</span><span class="dbtn">Qs</span><span class="dbtn">Ah</span><span class="dbtn">Wt</span>
-              </div>
-            </div>
-            <div class="win" style="left:276px;top:14px;width:340px">
-              <div class="wt"><span class="blk">Map</span><span style="color:#fff">Kalimdor</span><span class="fill"></span><span class="mb x"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8"/></svg></span></div>
-              <div style="position:relative;height:262px;background:#1f2a2f;overflow:hidden">
-                <svg width="340" height="262" viewBox="0 0 340 262" aria-hidden="true" style="position:absolute;inset:0">
-                  <path d="M70 10h120l30 40-10 60 40 40-20 70-70 30-60-20-40-60 10-70z" fill="#4a4630"/>
-                  <path d="M190 50l60-10 40 50-20 60-60 0-20-40z" fill="#56502f"/>
-                  <path d="M110 120l70 0 20 60-40 50-60-20z" fill="#5c5233"/>
-                  <path d="M70 10h120l30 40-10 60 40 40-20 70-70 30-60-20-40-60 10-70z M190 50l60-10 40 50-20 60-60 0 M110 120l70 0 20 60-40 50-60-20z" fill="none" stroke="#2b2a1d" stroke-width="1.2"/>
-                </svg>
-                <span class="zl" style="left:96px;top:58px">Ashenvale<b>18–30</b></span>
-                <span class="zl" style="left:218px;top:84px">Durotar<b>1–10</b></span>
-                <span class="zl hl" style="left:128px;top:160px">The Barrens<b>10–25</b></span>
-                <svg width="12" height="12" viewBox="0 0 14 14" style="position:absolute;left:150px;top:140px" aria-hidden="true"><path d="M7 1l5 12-5-3-5 3z" fill="#fff" stroke="#0F0F0F"/></svg>
-              </div>
-              <div class="row" style="height:22px;font-size:10px;gap:6px;padding:0 8px;display:flex;align-items:center;border-top:1px solid var(--line);background:var(--panel)"><span class="muted">You</span><span style="color:#fff">52.4, 31.7</span><span style="flex:1"></span><span class="muted">Cursor</span><span style="color:#fff">48.0, 40.2</span></div>
-            </div>
-          </div>
-        </div>
-        <figcaption><span class="is is-mock">Mockup</span><span class="is is-shot">In game</span><span class="fill" aria-hidden="true"></span><span>The button drawer open, and the world map's level ranges</span></figcaption>
-      </figure>
-    </div>
-
-    <!-- tooltips -->
-    <div class="feature">
-      <div class="copy">
-        <h2>Tooltips with the numbers you look for</h2>
-        <p>Every tooltip gets the flat panel and VoltUI's font. Item tooltips take the item's rarity colour as their border, and units get a thin health bar with their health on it.</p>
-        <ul class="ticks">
-          <li><span><b>Item level</b> on gear and the <b>vendor price</b>, when the game doesn't show them.</span></li>
-          <li><span><b>You have</b>: how many you carry, and how many more are in the bank.</span></li>
-          <li><span>Class colours on names and <b>who they're targeting</b> ("You" when it's you).</span></li>
-          <li><span>Show them where the game does, at the cursor, or at a spot of your own, and hide unit tooltips in combat if you like.</span></li>
-        </ul>
-      </div>
-      <figure class="shot">
-        <img src="img/tooltips.png" alt="VoltUI's tooltips in game" loading="lazy" onload="kShot(this)" onerror="this.remove()">
-        <div class="fit" data-w="600" data-h="330" role="img" aria-label="Mockup of two tooltips: a blue item with item level, vendor price and how many you have, and a player with class colour, target and health bar">
-          <div class="stage m" style="width:600px;height:330px;background:linear-gradient(160deg,#2b332c,#191e19)">
-            <div class="tt" style="left:24px;top:24px;width:268px;border-color:var(--q3)">
-              <div style="font-size:15px;font-weight:600;color:var(--q3)">Forest Stalker's Bracers</div>
-              <div class="y">Item level <span class="n">31</span></div>
-              <div>Binds when equipped</div>
-              <div class="two"><span>Wrist</span><span>Leather</span></div>
-              <div><span class="n">58</span> Armor</div>
-              <div>+<span class="n">7</span> Agility</div>
-              <div>+<span class="n">4</span> Stamina</div>
-              <div>Requires Level <span class="n">24</span></div>
-              <div class="two"><span class="g">Vendor</span><span class="n">12<span style="color:#C7C7CF">s</span> 40<span style="color:#C87533">c</span></span></div>
-              <div class="sec"><span class="mk" style="width:5px;height:5px"></span><span class="t">You have</span><span class="fill"></span></div>
-              <div class="two"><span>Bags</span><span class="n">1</span></div>
-              <div class="two"><span>Bank</span><span class="n">2</span></div>
-              <div class="g" style="font-size:12px;margin-top:4px">Item id <span class="n">6600</span> <span style="color:#5a5a5a">· Shift</span></div>
-            </div>
-            <div style="position:absolute;left:316px;top:24px;width:260px">
-              <div class="tt" style="position:relative">
-                <div style="font-size:15px;font-weight:600;color:#ABD473">Velis</div>
-                <div>Level <span class="n">24</span> Night Elf Hunter</div>
-                <div class="g">&lt;Ashen Lantern&gt;</div>
-                <div class="two"><span class="g">Targeting</span><span style="color:var(--gold)">You</span></div>
-              </div>
-              <div class="bar" style="height:14px;margin:2px 0 0;border:1px solid var(--edge)"><i style="width:68%;background-color:#4ADE80"></i><span class="tr" style="font:600 10px var(--mono);right:4px">68%</span></div>
-              <div class="tt" style="position:relative;margin-top:22px;border-color:var(--q2)">
-                <div style="font-size:14px;font-weight:600;color:var(--q2)">Ridge Belt</div>
-                <div class="y">Item level <span class="n">22</span></div>
-                <div class="two"><span class="g">Vendor</span><span class="n">3<span style="color:#C7C7CF">s</span> 8<span style="color:#C87533">c</span></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <figcaption><span class="is is-mock">Mockup</span><span class="is is-shot">In game</span><span class="fill" aria-hidden="true"></span><span>Rarity borders, item level, vendor price and counts</span></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== GALLERY ============================== -->
-<section class="block gallery" id="gallery" aria-labelledby="h-gal">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="band"><span class="mk"></span><span class="no">--</span><span>In game</span><span class="fill"></span><span class="end"></span></div>
-      <h2 id="h-gal">Screenshots</h2>
-    </div>
-    <div class="gal">
-      <figure><img src="img/shot-1.png" alt="" loading="lazy" onload="kGal(this)" onerror="this.parentElement.remove()"><figcaption></figcaption></figure>
-      <figure><img src="img/shot-2.png" alt="" loading="lazy" onload="kGal(this)" onerror="this.parentElement.remove()"><figcaption></figcaption></figure>
-      <figure><img src="img/shot-3.png" alt="" loading="lazy" onload="kGal(this)" onerror="this.parentElement.remove()"><figcaption></figcaption></figure>
-      <figure><img src="img/shot-4.png" alt="" loading="lazy" onload="kGal(this)" onerror="this.parentElement.remove()"><figcaption></figcaption></figure>
-      <figure><img src="img/shot-5.png" alt="" loading="lazy" onload="kGal(this)" onerror="this.parentElement.remove()"><figcaption></figcaption></figure>
-      <figure><img src="img/shot-6.png" alt="" loading="lazy" onload="kGal(this)" onerror="this.parentElement.remove()"><figcaption></figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== EVERYTHING ============================== -->
-<section class="block" id="everything" aria-labelledby="h-all">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="band"><span class="mk"></span><span class="no">03</span><span>Everything in it</span><span class="fill"></span><span class="end"></span></div>
-      <h2 id="h-all">Every part, and each one can be switched off.</h2>
-      <p>The Home page of the settings window has a tile for each, with its switch. Where you'd rather use another add-on for one part, VoltUI steps aside.</p>
-    </div>
-    <div class="groups">
+    <div class="groups four">
       <div class="group">
-        <h3><span class="mk"></span>Frames<span class="n">7</span><span class="fill"></span><span class="end"></span></h3>
+        <h3><span class="mk"></span>Frames<span class="n">5</span><span class="fill"></span><span class="end"></span></h3>
         <dl>
-          <div><dt>Player, target, focus, pet</dt><dd>Header, health and power in sizes you set; portraits, class colours, elite and rare styles, and text placed where you want it.</dd></div>
-          <div><dt>Castbar and swing timers</dt><dd>A flat bar with latency and the time left; the game's swing bars in the same look.</dd></div>
-          <div><dt>Party and raid</dt><dd>VoltUI's own secure frames, with heal mode, click-casting, HoT timers and dispel windows.</dd></div>
-          <div><dt>Nameplates</dt><dd>The game's own plates restyled, with separate enemy, friendly and target settings.</dd></div>
-          <div><dt>Buffs</dt><dd>The game's buff panel, flat, with time left in mono.</dd></div>
-          <div><dt>Timers</dt><dd>WeakAuras-style timers for your class's cooldowns and totems, with pulses and flashes.</dd></div>
-          <div><dt>Bar textures</dt><dd>Seven of VoltUI's own, two of the game's, and any shared through LibSharedMedia.</dd></div>
+          <div><dt>Player, target, focus and pet frames</dt></div>
+          <div><dt>Party and raid frames made for healing</dt></div>
+          <div><dt>Nameplates</dt></div>
+          <div><dt>Castbar and swing timers</dt></div>
+          <div><dt>Buffs and class timers</dt></div>
         </dl>
       </div>
       <div class="group">
-        <h3><span class="mk"></span>Bars<span class="n">4</span><span class="fill"></span><span class="end"></span></h3>
+        <h3><span class="mk"></span>Bars and world<span class="n">5</span><span class="fill"></span><span class="end"></span></h3>
         <dl>
-          <div><dt>Action bars</dt><dd>The game's own buttons, so nothing is blocked in combat, with size, layout, text and visibility per bar.</dd></div>
-          <div><dt>Proc glow and quick keybinds</dt><dd>Your class's procs light up; hover a button and press a key to bind it.</dd></div>
-          <div><dt>Menu, bag buttons, XP and reputation</dt><dd>Flat, movable, each with its own switch.</dd></div>
-          <div><dt>Bar plates</dt><dd>A glass plate behind each bar, if you want one.</dd></div>
-        </dl>
-      </div>
-      <div class="group">
-        <h3><span class="mk"></span>World<span class="n">2</span><span class="fill"></span><span class="end"></span></h3>
-        <dl>
-          <div><dt>Square minimap</dt><dd>Readout rows, a drawer for add-on buttons, moved and scaled like any frame.</dd></div>
-          <div><dt>World map</dt><dd>Drag it anywhere and resize it, with zone level ranges and coordinates.</dd></div>
+          <div><dt>Action bars with proc glow</dt></div>
+          <div><dt>Quick keybinds</dt></div>
+          <div><dt>Menu, bag, XP and reputation bars</dt></div>
+          <div><dt>Square minimap with readouts</dt></div>
+          <div><dt>Movable world map with zone levels</dt></div>
         </dl>
       </div>
       <div class="group">
         <h3><span class="mk"></span>Items<span class="n">5</span><span class="fill"></span><span class="end"></span></h3>
         <dl>
-          <div><dt>Bags and bank</dt><dd>Categories, filters, search words, special bags kept apart, and every gap adjustable.</dd></div>
-          <div><dt>Guild bank</dt><dd>The game's guild bank in VoltUI's look, with slots like your bags.</dd></div>
-          <div><dt>Loot window and rolls</dt><dd>A flat loot window that scrolls past eight items; need and greed in the same look.</dd></div>
-          <div><dt>Tooltips</dt><dd>Rarity borders, item level, vendor price, counts, targets and ids.</dd></div>
-          <div><dt>Junk selling</dt><dd>Greys sold when you open a vendor, and repairs if you turn them on.</dd></div>
+          <div><dt>Bags and bank that sort themselves</dt></div>
+          <div><dt>Guild bank</dt></div>
+          <div><dt>Loot window and rolls</dt></div>
+          <div><dt>Tooltips</dt></div>
+          <div><dt>Junk sold for you</dt></div>
         </dl>
       </div>
       <div class="group">
         <h3><span class="mk"></span>More<span class="n">6</span><span class="fill"></span><span class="end"></span></h3>
         <dl>
-          <div><dt>Chat</dt><dd>Flat panels, plain tabs, a mover and resize grip, links to copy and a copy box.</dd></div>
-          <div><dt>Group finder</dt><dd>The Browse rows re-laid: leader, activities, note and age at a glance.</dd></div>
-          <div><dt>Fonts</dt><dd>Twenty bundled fonts, an overall one, and a font of its own for any text.</dd></div>
-          <div><dt>Profiles, share and back up</dt><dd>Named profiles and settings strings you can paste anywhere.</dd></div>
-          <div><dt>Errors</dt><dd>Lua errors kept, counted and ready to copy as one report.</dd></div>
-          <div><dt>Questie skin</dt><dd>Questie's tracker, settings and My Journey in VoltUI's look, if you use it.</dd></div>
+          <div><dt>Chat</dt></div>
+          <div><dt>Group finder</dt></div>
+          <div><dt>Twenty bundled fonts</dt></div>
+          <div><dt>Profiles, share and back up</dt></div>
+          <div><dt>Error catcher</dt></div>
+          <div><dt>Questie skin, if you use it</dt></div>
         </dl>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== WORKS WITH ============================== -->
-<section class="block" aria-labelledby="h-with">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="band"><span class="mk"></span><span class="no">04</span><span>Plays well with others</span><span class="fill"></span><span class="end"></span></div>
-      <h2 id="h-with">It doesn't fight your other add-ons.</h2>
-    </div>
-    <div class="with">
-      <div><h3><span class="mk"></span>Steps aside</h3><p>VoltUI's bags stay off while Baganator is on, and a part whose job another add-on is doing says so on Home instead of drawing over it.</p></div>
-      <div><h3><span class="mk"></span>Hooks, not replacements</h3><p>VoltUI reuses and restyles the game's own frames and buttons wherever it can, so the game keeps working the way it expects to.</p></div>
-      <div><h3><span class="mk"></span>Errors kept quiet</h3><p>VoltUI catches its own Lua errors and lists them in <code>/volt errors</code> instead of throwing a pop-up at you mid-fight.</p></div>
-      <div><h3><span class="mk"></span>Room to grow</h3><p>Other add-ons can add settings pages, tooltip lines, minimap menu entries and <code>/volt</code> commands through VoltUI's hooks.</p></div>
     </div>
   </div>
 </section>
@@ -1036,7 +559,7 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 <section class="block" id="install" aria-labelledby="h-inst">
   <div class="wrap">
     <div class="sec-head">
-      <div class="band"><span class="mk"></span><span class="no">05</span><span>Install</span><span class="fill"></span><span class="end"></span></div>
+      <div class="band"><span class="mk"></span><span class="no">02</span><span>Install</span><span class="fill"></span><span class="end"></span></div>
       <h2 id="h-inst">Three steps, then <code style="font-size:.8em">/volt</code>.</h2>
     </div>
     <div class="install">
@@ -1077,110 +600,5 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
   </div>
 </footer>
 
-<script>
-// A screenshot that loads takes the mockup's place.
-function kShot(img) { img.closest('.shot').classList.add('has-shot'); }
-function kGal(img) {
-  img.parentElement.classList.add('ok');
-  img.closest('.gallery').classList.add('any');
-}
-
-// Mockups are drawn at the game's sizes and scaled down to fit (never up).
-(function () {
-  var fits = document.querySelectorAll('.fit');
-  function size(el) {
-    var w = +el.dataset.w, h = +el.dataset.h, s = Math.min(1, el.clientWidth / w);
-    el.style.height = Math.round(h * s) + 'px';
-    el.firstElementChild.style.transform = 'scale(' + s + ')';
-    if (s < 1) el.firstElementChild.style.left = '0';
-    else el.firstElementChild.style.left = Math.round((el.clientWidth - w) / 2) + 'px';
-  }
-  if ('ResizeObserver' in window) {
-    var ro = new ResizeObserver(function (es) { es.forEach(function (e) { size(e.target); }); });
-    fits.forEach(function (el) { ro.observe(el); });
-  }
-  fits.forEach(function (el) {
-    // a stage narrower than its box sits in the middle; its backdrop fills the rest
-    var bg = getComputedStyle(el.firstElementChild).backgroundImage;
-    if (bg && bg !== 'none') el.style.backgroundImage = bg;
-    size(el);
-  });
-})();
-
-// Raid frames for the heal mode mockup: four groups of five.
-(function () {
-  var C = { war: '#C79C6E', pal: '#F58CBA', hun: '#ABD473', rog: '#FFF569', pri: '#FFFFFF', sha: '#0070DE', mag: '#69CCF0', loc: '#9482C9', dru: '#FF7D0A' };
-  var groups = [
-    [['Brannoc','war',100], ['Velis','hun',58,{heal:14,hot:[['#3bb54a','9']]}], ['Morrow','mag',82,{magic:1}], ['Ashka','loc',100,{far:1}], ['Tilde','pal',91]],
-    [['Oren','war',44,{heal:22,hot:[['#3bb54a','4'],['#e6e6e6','11']],aggro:1}], ['Sefa','pri',100,{shield:16}], ['Grimbo','rog',73], ['Lunet','dru',100,{hot:[['#ff7d0a','7']]}], ['Quill','mag',0,{dead:1}]],
-    [['Pell','sha',96], ['Ryn','hun',100], ['Dax','rog',61,{hot:[['#3bb54a','2']]}], ['Isolde','pri',88], ['Marn','loc',100]],
-    [['Halv','war',79], ['Esk','dru',100], ['Wren','mag',52,{heal:10}], ['Toma','pal',100,{far:1}], ['Ilse','sha',93]]
-  ];
-  var g = document.getElementById('raidgrid');
-  if (!g) return;
-  var W = 145, H = 44, GX = 6, GY = 4;
-  groups.forEach(function (grp, gi) {
-    grp.forEach(function (m, i) {
-      var o = m[3] || {}, pct = m[2];
-      var el = document.createElement('div');
-      el.className = 'raidcell gp';
-      el.style.cssText = 'left:' + (gi * (W + GX)) + 'px;top:' + (i * (H + GY)) + 'px;width:' + W + 'px;height:' + H + 'px';
-      if (o.far) el.style.opacity = '.4';
-      if (o.magic) { el.style.borderColor = '#3399FF'; el.style.boxShadow = 'inset 0 0 0 1px #3399FF, 0 0 8px rgba(51,153,255,.55)'; }
-      if (o.aggro) el.style.borderColor = '#e04040';
-      var h = '<div class="bar hp"><i style="width:' + pct + '%;background-color:' + C[m[1]] + ';opacity:.92"></i>';
-      if (o.heal) h += '<s style="left:' + pct + '%;width:' + o.heal + '%"></s>';
-      if (o.shield) h += '<s style="left:' + Math.max(0, pct - o.shield) + '%;width:' + o.shield + '%;background:repeating-linear-gradient(135deg,rgba(255,255,255,.7) 0 2px,rgba(255,255,255,.15) 2px 5px)"></s>';
-      h += '</div><div class="bar pw"><i style="width:' + (o.dead ? 0 : 70) + '%;background-color:' + (m[1] === 'war' ? '#c42020' : m[1] === 'rog' ? '#e8d020' : '#2e6fe0') + '"></i></div>';
-      h += '<span class="nm"' + (o.dead ? ' style="color:#999"' : '') + '>' + m[0] + '</span>';
-      if (o.dead) h += '<span class="lost" style="color:#999">Dead</span>';
-      else if (pct < 100) h += '<span class="lost">-' + (((100 - pct) * 21) > 999 ? (((100 - pct) * 21) / 1000).toFixed(1) + 'k' : ((100 - pct) * 21)) + '</span>';
-      (o.hot || []).forEach(function (t, k) { h += '<span class="hot" style="right:' + (3 + k * 15) + 'px;top:auto;bottom:7px;background:' + t[0] + ';color:' + (t[0] === '#e6e6e6' ? '#111' : '#fff') + ';text-shadow:none">' + t[1] + '</span>'; });
-      if (o.magic) h += '<span style="position:absolute;left:5px;bottom:7px;width:14px;height:14px;border:1px solid #3399FF;background:linear-gradient(135deg,#c8a0ff,#3a1a70)"></span>';
-      el.innerHTML = h;
-      g.appendChild(el);
-    });
-  });
-})();
-
-// Bag window for the bags mockup.
-(function () {
-  var body = document.getElementById('bagbody');
-  if (!body) return;
-  var Q = { 0: '#9D9D9D', 1: '#404040', 2: '#1EFF00', 3: '#0070DD', 4: '#A335EE', 9: '#FFD100' };
-  var F = { 0: '#1E1E1E', 1: '#1E1E1E', 2: '#17301A', 3: '#12243A', 4: '#2A1838', 9: '#2E2A14' };
-  // quality, letters, stack, item level, flags (n new, q starts a quest, b not needed, h hover, d dimmed by the filter, boe)
-  function I(q, a, st, il, f) { return { q: q, a: a, st: st || '', il: il || '', f: f || '' }; }
-  var secs = [
-    ['New', [I(2, 'Bo', '', '31', 'n boe'), I(1, 'Li', '4', '', 'n d')]],
-    ['Quest', [I(9, 'Am', '3', '', 'q d'), I(9, 'Ta', '7', '', 'b d'), I(9, 'No', '', '', 'd')]],
-    ['Equipment', [I(3, 'Ri', '', '38', 'h boe'), I(2, 'Ax', '', '33', 'boe'), I(2, 'He', '', '30', 'd'), I(4, 'St', '', '41', 'boe'), I(1, 'Sh', '', '22', 'd'), I(2, 'Gl', '', '29', 'd')]],
-    ['Consumables', [I(1, 'HP', '5'), I(1, 'MP', '12'), I(1, 'Fo', '20'), I(1, 'Wa', '20'), I(2, 'El', '2'), I(1, 'Ba', '9'), I(1, 'Sc', '3')].map(function (x) { x.f += ' d'; return x; })],
-    ['Trade goods', [I(1, 'Cu', '20'), I(1, 'Ti', '8'), I(2, 'Ge', '2'), I(1, 'Le', '17'), I(1, 'Cl', '20'), I(1, 'He', '11')].map(function (x) { x.f += ' d'; return x; })],
-    ['Junk', [I(0, 'Fa', '4', '', 'd'), I(0, 'Cl', '1', '', 'd'), I(0, 'Bo', '9', '', 'd')]],
-    ['Empty', null]
-  ];
-  var html = '';
-  secs.forEach(function (s) {
-    var items = s[1], n = items ? items.length : 10, cols = Math.min(10, n);
-    html += '<section style="width:' + (cols * 36 + (cols - 1) * 4) + 'px;display:flex;flex-direction:column;gap:5px">';
-    html += '<div class="bh2"><span class="mk"></span><span class="t">' + s[0] + '</span><span class="n">' + (items ? n : '26') + '</span><span class="fill"></span></div><div style="display:flex;flex-wrap:wrap;gap:4px">';
-    if (!items) { for (var e = 0; e < 10; e++) html += '<span class="slot e"></span>'; }
-    else items.forEach(function (it) {
-      var f = ' ' + it.f + ' ', ink = it.q <= 1 ? '#8C8C8C' : Q[it.q];
-      html += '<span class="slot' + (f.indexOf(' h ') >= 0 ? ' hv' : '') + '" style="border-color:' + Q[it.q] + ';background:' + F[it.q] + (f.indexOf(' d ') >= 0 ? ';opacity:.28' : '') + '">';
-      html += '<span class="a" style="color:' + ink + '">' + it.a + '</span>';
-      if (it.il) html += '<span class="il" style="color:' + Q[it.q] + '">' + it.il + '</span>';
-      if (it.st) html += '<span class="st">' + it.st + '</span>';
-      if (f.indexOf(' q ') >= 0) html += '<span class="qm">!</span>';
-      if (f.indexOf(' b ') >= 0) html += '<svg class="bin" viewBox="0 0 9 10" aria-hidden="true"><path d="M1 2.5h7M3 2.5V1h3v1.5M2 2.5l.6 7h3.8l.6-7" fill="none" stroke="#F87171" stroke-width="1.2"/></svg>';
-      if (f.indexOf(' n ') >= 0) html += '<span class="nw"></span>';
-      html += '</span>';
-    });
-    html += '</div></section>';
-  });
-  body.innerHTML = html;
-})();
-</script>
 </body>
 </html>

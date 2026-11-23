@@ -266,7 +266,8 @@ function I:PaintButton()
   local p = S.ThemePanel(b, 1, S.UI.r.button)
   S.Paint(p.fill, A[1], A[2], A[3], 1)
   S.ColorEdges(p.edges, S.UI.primaryText[1], S.UI.primaryText[2], S.UI.primaryText[3], 1)
-  local dark = S.UI.primaryText
+  -- the panel's near-black, as on the project page: primaryText is the same gold as the square
+  local dark = S.UI.panel
   b.glyph:SetVertexColor(dark[1], dark[2], dark[3], 1)
 end
 
