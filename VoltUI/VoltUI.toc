@@ -1,0 +1,43 @@
+## Interface: 16001
+## Title: |cffffc61aVolt|rUI
+## Notes: A flat, dark look for the game's UI. Player and target frames, its own party and raid frames with a heal mode, click-casting, HoT timers and dispel windows, nameplates, castbar, WeakAuras-style timers for your class's cooldowns, buffs, procs, debuffs and totems, bar textures, twenty bundled fonts with a font of its own for any text, bags, loot window, tooltips, junk selling, square minimap, a world map with zone levels and coordinates, a skin for Questie, and one settings window with search, copying between frames, a grid with pixel nudges, export and import, and an error catcher.
+## Version: 1.105.0
+## SavedVariables: VoltUIDB
+## OptionalDeps: QuestieDB
+
+Style.lua
+Controls.lua
+Core.lua
+Profiles.lua
+Errors.lua
+Loot.lua
+Minimap.lua
+WorldMap.lua
+QuestieSkin.lua
+Bags.lua
+Tooltips.lua
+Junk.lua
+GuildBank.lua
+GroupFinder.lua
+Castbar.lua
+UnitFrames.lua
+FrameExtras.lua
+Buffs.lua
+Timers.lua
+RaidAuras.lua
+Raid.lua
+HealMode.lua
+Dispel.lua
+Nameplates.lua
+ActionBars.lua
+ProcGlow.lua
+Pages.lua
+Share.lua
+Move.lua
+EditMode.lua
+MinimapIcon.lua
+Extras.lua
+Chat.lua
+Links.lua
+Setup.lua
+Companion.lua

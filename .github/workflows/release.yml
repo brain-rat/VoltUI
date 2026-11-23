@@ -1,0 +1,23 @@
+# Push a tag named after the toc's version (git tag v1.2.3, git push origin v1.2.3) and this runs
+# every test on Lua 5.1, makes the zip with tools/package.py and puts it on a new GitHub release.
+# It stops, with no release, if a test fails or the tag isn't the toc's version.
+name: Release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install lupa
+      - run: python tests/run_all.py
+      - run: python tools/package.py --version "$GITHUB_REF_NAME"
+      - run: gh release create "$GITHUB_REF_NAME" dist/*.zip --title "VoltUI $GITHUB_REF_NAME" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}

@@ -1,0 +1,18 @@
+# API keys stay on your PC
+key.txt
+# made from ForeverDB's data by VoltUI's tools before 1.103.0, in case any are left; never shipped
+VoltUI/ForeverZones.lua
+VoltUI/ForeverRares.lua
+VoltUI/CreatureLoot.lua
+VoltUI/ForeverBooks.lua
+VoltUI/ForeverDungeons.lua
+VoltUI/ForeverFlights.lua
+VoltUI/ForeverPools.lua
+VoltUI/ForeverGear.lua
+*.report.json
+# build and editor leftovers
+dist/
+*.tmp
+.DS_Store
+Thumbs.db
+__pycache__/
